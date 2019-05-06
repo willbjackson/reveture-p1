@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const cosmosdb = require('@azure/cosmos').CosmosClient;
 const app = express()
@@ -25,11 +26,11 @@ const uploadOptions = { bufferSize: 4 * ONE_MEGABYTE, maxBuffers: 20 };
 const ONE_MINUTE = 60 * 1000;
 
 const sharedKeyCredential = new SharedKeyCredential(
-  'wjblobstorage218',
-  'UGN5TpJlS6FKkE1a5igO2iKKa1GBb19yDVvo+uGY7r3DPHKPsfKrtpSOGf+dwEcZZ5Wa0qHQp6MMiIyWtgRXdw==');
+  process.env.AZURE_STORAGE_ACCOUNT_NAME,
+  process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY);
 const pipeline = StorageURL.newPipeline(sharedKeyCredential);
 const serviceURL = new ServiceURL(
-  `https://wjblobstorage218.blob.core.windows.net`,
+  `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
   pipeline
 );
 
