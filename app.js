@@ -1,12 +1,9 @@
 require('dotenv').config()
 const express = require('express')
-const cosmosdb = require('@azure/cosmos').CosmosClient;
+const cosmos = require('@azure/cosmos').CosmosClient;
 const app = express()
 const port = 8080
 const multer  = require('multer')
-const fs = require('fs')
-const path = require('path')
-const dirPath = path.join(__dirname, "/uploads")
 const {
   Aborter,
   BlockBlobURL,
