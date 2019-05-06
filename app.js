@@ -59,26 +59,22 @@ app.post('/profile', uploadStrategy, async (req, res) => {
   }
 });
 
-// app.post('/profile', upload.single('avatar'), function (req, res) {
-//     res.redirect("/")
+
+// const nosql = new cosmosdb({
+//   endpoint: 'https://project-1.documents.azure.com:443/',
+//   auth: {
+//     masterKey: 'u515IkJdYa7T5LOo0WwZ0T85DQEN29Tba58xmC4UdZLRjvyFMYVN9KLupU0x5bM4D8VauyR52NED5AmvLk7OvQ=='
+//   }
 // })
 
 app.get('/images', (req, res) => {
-    fs.readdir(dirPath, (err, files) => {
-        if(err) {
-            res.send("balls")
-        } else {
-            res.json(files)
-        }
-    })
-})
-
-
-const nosql = new cosmosdb({
-  endpoint: 'https://project-1.documents.azure.com:443/',
-  auth: {
-    masterKey: 'u515IkJdYa7T5LOo0WwZ0T85DQEN29Tba58xmC4UdZLRjvyFMYVN9KLupU0x5bM4D8VauyR52NED5AmvLk7OvQ=='
-  }
+  fs.readdir(dirPath, (err, files) => {
+      if(err) {
+          res.send("balls")
+      } else {
+          res.json(files)
+      }
+  })
 })
 
 app.use(express.static('.'));
