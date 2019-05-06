@@ -80,7 +80,7 @@ const nosql = new cosmos({
   }
 });
 
-nosql.database('nac').container('jh').items.readAll().toArrary().then(res => console.log(res.result))
+// nosql.database('nac').container('jh').items.readAll().toArrary().then(res => console.log(res.result))
 
 app.get('/images', (req, res) => {
 
