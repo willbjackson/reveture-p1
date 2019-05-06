@@ -6,7 +6,6 @@ location=southcentralus
 servicePlanName=$3
 appName=$4
 gitrepo=https://github.com/willbjackson/reveture-p1
-token=17396aedab1b72aad408bb61924f738ce9070ef7
 cosmosName=$5
 cosmosDatabaseName=$6
 cosmosContainerName=$7
@@ -69,7 +68,7 @@ az webapp config appsettings set -g $groupName -n $appName --settings AZURE_STOR
 # Configure continuous deployment from GitHub. 
 # --git-token parameter is required only once per Azure account (Azure remembers token).
 az webapp deployment source config --name $appName --resource-group $groupName \
---repo-url $gitrepo --branch master --git-token $token
+--repo-url $gitrepo --branch master
 
 # add instances 
 az appservice plan update -g $groupName -n $servicePlanName --number-of-workers 3
