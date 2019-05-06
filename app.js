@@ -60,21 +60,14 @@ app.post('/profile', uploadStrategy, async (req, res) => {
 });
 
 
-// const nosql = new cosmosdb({
-//   endpoint: 'https://project-1.documents.azure.com:443/',
-//   auth: {
-//     masterKey: 'u515IkJdYa7T5LOo0WwZ0T85DQEN29Tba58xmC4UdZLRjvyFMYVN9KLupU0x5bM4D8VauyR52NED5AmvLk7OvQ=='
-//   }
-// })
+const nosql = new cosmos( {endpoint: process.env.AZURE_COSMOS_URI, auth: { 
+  masterKey: process.env.AZURE_COSMOS_PRIMARY_KEY
+}});
+
+nosql.database('nac').container('jh').items.readAll().toArrary().then(res => console.log(res.result))
 
 app.get('/images', (req, res) => {
-  fs.readdir(dirPath, (err, files) => {
-      if(err) {
-          res.send("balls")
-      } else {
-          res.json(files)
-      }
-  })
+
 })
 
 app.use(express.static('.'));
