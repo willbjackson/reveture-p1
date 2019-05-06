@@ -1,0 +1,28 @@
+{
+  "name": "project-p1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm install & node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willbjackson/reveture-p1.git"
+  },
+  "keywords": [],
+  "author": "Will Jackson <wbjackson218@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willbjackson/reveture-p1/issues"
+  },
+  "homepage": "https://github.com/willbjackson/reveture-p1#readme",
+  "dependencies": {
+    "@azure/cosmos": "^2.1.5",
+    "@azure/storage-blob": "^10.3.0",
+    "express": "^4.16.4",
+    "into-stream": "^5.1.0",
+    "multer": "^1.4.1"
+  }
+}
